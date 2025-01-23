@@ -5,8 +5,6 @@ from time import sleep
 from imap_tools import MailBox
 from Data import data
 
-from Data import data
-
 # Konfiguracja Selenium
 driver = webdriver.Edge()
 driver.maximize_window()
