@@ -16,12 +16,13 @@ driver.find_element(By.NAME, "email").send_keys(data("email"))
 driver.find_element(By.ID, "password").send_keys(data("account_password"))
 sleep(1.5)
 driver.find_element(By.CLASS_NAME, "neo-button.btn-primary.btn-large.neo-flex.justify-content-center.align-items-center.neo-box").click()
-sleep(3)
+sleep(5)
 with MailBox('imap.fastmail.com').login(data("email"), data("imap_password"), "Inbox") as mb:
     for msg in mb.fetch(limit=1, reverse=True, mark_seen=True):
         dwafa = msg.html[10683:10690]
 
 driver.find_element(By.ID, "verificationCode").send_keys(dwafa)
-driver.find_element(By.XPATH, "//submit[1]").click()
+#neo-button btn-primary btn-large neo-flex justify-content-center align-items-center neo-box
+driver.find_element(By.XPATH, "(//button)[3]").click()
 
 sleep(1000)
